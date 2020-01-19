@@ -1,0 +1,15 @@
+{
+  "name": "intro-to-apex",
+  "version": "1.0.0",
+  "description": "Introduction to Apex session sample code.",
+  "scripts": {
+    "test": "sfdx force:apex:test:run --codecoverage"
+  },
+  "author": "Miranda Ragland <miranda@m7unlimited.com>",
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "1.19.1",
+    "prettier-plugin-apex": "1.1.0"
+  }
+}
