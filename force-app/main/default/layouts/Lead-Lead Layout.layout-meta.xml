@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>Submit</excludeButtons>
+    <emailDefault>false</emailDefault>
+    <headers>PersonalTagging</headers>
+    <headers>PublicTagging</headers>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>true</editHeading>
-        <label>Account Information</label>
+        <label>Lead Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -16,20 +18,20 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ParentId</field>
+                <behavior>Required</behavior>
+                <field>Company</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AccountNumber</field>
+                <field>Title</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Site</field>
+                <field>LeadSource</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Type</field>
+                <field>CampaignId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -41,21 +43,17 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>BillingOpenStreetMap__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ShippingOpenStreetMap__c</field>
+                <field>OpenStreetMap__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Rating</field>
+                <field>Phone</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Phone</field>
+                <field>MobilePhone</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -63,69 +61,26 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Email</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Website</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TickerSymbol</field>
+                <behavior>Required</behavior>
+                <field>Status</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ownership</field>
+                <field>Rating</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>NumberOfEmployees</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Sic</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Rollup Details</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Num_of_Contacts_STD_RUS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Num_of_Contacts_AE__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Num_of_Contacts_Flow__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Num_of_Contacts_Apex__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Num_of_Open_Opps_STD_RUS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Num_of_Open_Opps_AE__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Num_of_Open_Opps_Flow__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Num_of_Open_Opps_Apex__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -135,15 +90,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>BillingAddress</field>
+                <field>Address</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ShippingAddress</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
@@ -188,12 +138,9 @@
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
-        <customLabel>true</customLabel>
+        <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
-        <label>Custom Links</label>
-        <layoutColumns/>
-        <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
@@ -208,19 +155,13 @@
             <quickActionName>NewTask</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>NewContact</quickActionName>
+            <quickActionName>LogACall</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>NewCase</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>LogACall</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
             <quickActionName>NewNote</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
-            <quickActionName>NewOpportunity</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>NewEvent</quickActionName>
@@ -244,38 +185,18 @@
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
+                <behavior>Readonly</behavior>
+                <field>CampaignId</field>
+            </layoutItem>
+        </relatedContentItems>
+        <relatedContentItems>
+            <layoutItem>
                 <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <fields>FULL_NAME</fields>
-        <fields>CONTACT.TITLE</fields>
-        <fields>CONTACT.EMAIL</fields>
-        <fields>CONTACT.PHONE1</fields>
-        <relatedList>RelatedContactList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>OPPORTUNITY.NAME</fields>
-        <fields>OPPORTUNITY.STAGE_NAME</fields>
-        <fields>OPPORTUNITY.AMOUNT</fields>
-        <fields>OPPORTUNITY.CLOSE_DATE</fields>
-        <relatedList>RelatedOpportunityList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>CASES.CASE_NUMBER</fields>
-        <fields>NAME</fields>
-        <fields>CASES.SUBJECT</fields>
-        <fields>CASES.PRIORITY</fields>
-        <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
-        <fields>CASES.STATUS</fields>
-        <fields>OWNER_NAME</fields>
-        <relatedList>RelatedCaseList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>TASK.WHAT_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
         <fields>TASK.STATUS</fields>
@@ -285,8 +206,6 @@
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>TASK.WHAT_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
         <fields>TASK.DUE_DATE</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
@@ -294,24 +213,26 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
+        <fields>CAMPAIGN.NAME</fields>
+        <fields>CAMPAIGN.START_DATE</fields>
+        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
+        <fields>CM.STATUS</fields>
+        <fields>CM.RESPONDED</fields>
+        <fields>CM.LAST_UPDATE</fields>
+        <relatedList>RelatedCampaignList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>OPPORTUNITY.NAME</fields>
-        <fields>PARTNER.ROLE</fields>
-        <relatedList>RelatedPartnerList</relatedList>
+        <fields>ACTIVITY.SUBJECT</fields>
+        <fields>EMAIL_STATUS.CREATED_DATE</fields>
+        <fields>EMAIL_STATUS.FIRST_OPEN_DATE</fields>
+        <fields>EMAIL_STATUS.TIMES_OPENED</fields>
+        <fields>EMAIL_STATUS.LAST_OPEN_DATE</fields>
+        <relatedList>RelatedEmailStatusList</relatedList>
     </relatedLists>
-    <relatedObjects>ParentId</relatedObjects>
-    <showEmailCheckbox>false</showEmailCheckbox>
+    <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
+    <showEmailCheckbox>true</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
-    <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
+    <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
-    <summaryLayout>
-        <masterLabel>00h1F000001wFYP</masterLabel>
-        <sizeX>4</sizeX>
-        <sizeY>0</sizeY>
-        <summaryLayoutStyle>Default</summaryLayoutStyle>
-    </summaryLayout>
 </Layout>
