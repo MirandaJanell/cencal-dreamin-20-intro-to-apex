@@ -1,4 +1,4 @@
-trigger OpportunityLineItemTrigger on OpportunityLineItem (before insert, before update) {
+trigger OppDisc_OpportunityLineItemTrigger on OpportunityLineItem (before insert, before update) {
 	for(OpportunityLineItem oli : trigger.new) {
 		Decimal disc = 0;
 

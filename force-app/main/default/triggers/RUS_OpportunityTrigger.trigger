@@ -1,4 +1,4 @@
-trigger OpportunityTrigger_AccountRollup on Opportunity(
+trigger RUS_OpportunityTrigger on Opportunity(
 	after insert,
 	after update,
 	after delete,

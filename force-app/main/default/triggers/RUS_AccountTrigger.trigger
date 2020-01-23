@@ -1,4 +1,4 @@
-trigger AccountTrigger_OppRollup on Account(before insert, before update) {
+trigger RUS_AccountTrigger on Account(before insert, before update) {
 	if (Trigger.isInsert) {
 		for (Account acct : Trigger.new) {
 			acct.Num_of_Open_Opps_Apex__c = 0;
