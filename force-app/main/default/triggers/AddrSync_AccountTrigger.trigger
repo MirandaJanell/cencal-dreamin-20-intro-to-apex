@@ -20,7 +20,7 @@ trigger AddrSync_AccountTrigger on Account(after insert, after update) {
 	];
 
 	for (Contact cont : conts) {
-		Account acct = trigger.newMap.get(cont.AccountId);
+		Account acct = Trigger.newMap.get(cont.AccountId);
 		cont.MailingStreet = acct.BillingStreet;
 		cont.MailingCity = acct.BillingCity;
 		cont.MailingState = acct.BillingState;
